@@ -1,0 +1,2 @@
+# GEDCOM fixtures must keep their exact bytes (BOM + CRLF) for round-trip tests
+*.ged -text

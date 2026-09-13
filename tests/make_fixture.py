@@ -1,0 +1,213 @@
+"""Regenerate tests/fixtures/sample.ged (UTF-8 BOM + CRLF, like an Ancestry.com export)."""
+
+from pathlib import Path
+
+LINES = """\
+0 HEAD
+1 SOUR Ancestry.com Family Trees
+2 VERS (2010.3)
+2 NAME Ancestry.com Family Trees
+2 CORP Ancestry.com
+3 ADDR http://www.Ancestry.com
+1 DEST GED55
+1 DATE 12 Jan 2026
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR UTF-8
+1 SUBM @SUBM1@
+0 @I1@ INDI
+1 NAME William /Smith/
+2 GIVN William
+2 SURN Smith
+1 SEX M
+1 BIRT
+2 DATE 12 Mar 1840
+2 PLAC Bristol, Gloucestershire, England
+2 SOUR @S2@
+3 PAGE Bristol 1840 vol 11 p 203
+3 _APID 1,8912::4411
+1 DEAT
+2 DATE 5 Jun 1910
+2 PLAC Bristol, Gloucestershire, England
+1 OCCU Blacksmith
+2 DATE 1881
+2 PLAC Bristol, Gloucestershire, England
+2 SOUR @S1@
+3 PAGE Class: RG11; Piece: 2488; Folio: 12; Page: 17
+3 _APID 1,7572::1234567
+1 NOTE William was apprenticed at fourteen and ran his own forge on Redcliffe Street
+2 CONC  from about 1865 until his death.
+2 CONT He was known locally as "Iron Bill".
+1 NOTE @N1@
+1 FAMS @F1@
+1 _MILT
+2 DATE 1860
+2 PLAC Bristol
+1 CHAN
+2 DATE 3 Jan 2026
+3 TIME 10:15:00
+0 @I2@ INDI
+1 NAME Mary /Jones/
+2 GIVN Mary
+2 SURN Jones
+1 SEX F
+1 BIRT
+2 DATE ABT 1845
+2 PLAC Cardiff, Glamorgan, Wales
+1 DEAT
+2 DATE 1920
+1 FAMS @F1@
+1 FAMC @F4@
+0 @I3@ INDI
+1 NAME John /Smith/
+2 GIVN John
+2 SURN Smith
+1 SEX M
+1 BIRT
+2 DATE 3 Feb 1866
+2 PLAC Bristol, Gloucestershire, England
+2 SOUR @S2@
+3 PAGE Bristol 1866 vol 5c p 99
+3 _APID 1,8912::5522
+1 DEAT
+2 DATE BET 1930 AND 1935
+2 PLAC London, England
+1 EVEN
+2 TYPE Emigration
+2 DATE 1888
+2 PLAC Liverpool, Lancashire, England
+1 FAMS @F2@
+1 FAMC @F1@
+0 @I4@ INDI
+1 NAME Elizabeth /Smith/
+1 SEX F
+1 BIRT
+2 DATE 1868
+2 PLAC Bristol, Gloucestershire, England
+1 FAMC @F1@
+0 @I5@ INDI
+1 NAME Thomas /Smith/
+1 SEX M
+1 BIRT
+2 DATE 1871
+1 DEAT
+2 DATE 1872
+1 FAMC @F1@
+0 @I6@ INDI
+1 NAME Anne /Müller/
+2 GIVN Anne
+2 SURN Müller
+1 SEX F
+1 BIRT
+2 DATE 14 Jul 1870
+2 PLAC Hamburg, Germany
+1 DEAT
+2 DATE (date unknown)
+1 FAMS @F2@
+0 @I7@ INDI
+1 NAME Robert /Smith/
+1 SEX M
+1 BIRT
+2 DATE 5 May 1891
+2 PLAC London, England
+1 DEAT
+2 DATE 1960
+2 PLAC Sydney, New South Wales, Australia
+1 RESI
+2 DATE 1901
+2 PLAC Hackney, London, England
+1 FAMS @F3@
+1 FAMC @F2@
+0 @I8@ INDI
+1 NAME Margaret /Smith/
+1 SEX F
+1 BIRT
+2 DATE 1893
+2 PLAC London, England
+1 FAMC @F2@
+0 @I9@ INDI
+1 NAME Alice /Brown/
+1 SEX F
+1 BIRT
+2 DATE 1895
+2 PLAC Sydney, New South Wales, Australia
+1 FAMS @F3@
+0 @I10@ INDI
+1 NAME George /Smith/
+1 SEX M
+1 BIRT
+2 DATE 1916
+2 PLAC Sydney, New South Wales, Australia
+1 FAMC @F3@
+0 @I11@ INDI
+1 NAME Henry /Jones/
+1 SEX M
+1 BIRT
+2 DATE 1815
+2 PLAC Cardiff, Glamorgan, Wales
+1 FAMS @F4@
+0 @I12@ INDI
+1 NAME Sarah /Evans/
+1 SEX F
+1 BIRT
+2 DATE ABT 1820
+1 FAMS @F4@
+0 @F1@ FAM
+1 HUSB @I1@
+1 WIFE @I2@
+1 CHIL @I3@
+1 CHIL @I4@
+1 CHIL @I5@
+1 MARR
+2 DATE 10 Jun 1865
+2 PLAC Bristol, Gloucestershire, England
+2 SOUR @S2@
+3 PAGE Bristol 1865 vol 6a p 12
+0 @F2@ FAM
+1 HUSB @I3@
+1 WIFE @I6@
+1 CHIL @I7@
+1 CHIL @I8@
+1 MARR
+2 DATE 1890
+2 PLAC London, England
+0 @F3@ FAM
+1 HUSB @I7@
+1 WIFE @I9@
+1 CHIL @I10@
+1 MARR
+2 DATE 1915
+2 PLAC Sydney, New South Wales, Australia
+0 @F4@ FAM
+1 HUSB @I11@
+1 WIFE @I12@
+1 CHIL @I2@
+0 @S1@ SOUR
+1 TITL 1881 England Census
+1 AUTH Ancestry.com
+1 PUBL Ancestry.com Operations Inc
+1 REPO @R1@
+1 _APID 1,7572::0
+0 @S2@ SOUR
+1 TITL England & Wales, Civil Registration Birth Index, 1837-1915
+1 AUTH Ancestry.com
+1 PUBL Ancestry.com Operations Inc
+1 REPO @R1@
+1 _APID 1,8912::0
+0 @R1@ REPO
+1 NAME Ancestry.com
+1 ADDR
+2 CONT http://www.Ancestry.com
+0 @N1@ NOTE Shared research note: the Smith forge appears on the 1881
+1 CONC  and 1891 censuses.
+1 CONT Check the Bristol Record Office for apprenticeship papers.
+0 @SUBM1@ SUBM
+1 NAME Test Submitter
+0 TRLR
+"""
+
+if __name__ == "__main__":
+    out = Path(__file__).parent / "fixtures" / "sample.ged"
+    out.write_bytes(b"\xef\xbb\xbf" + LINES.replace("\n", "\r\n").encode("utf-8"))
+    print(f"wrote {out} ({out.stat().st_size} bytes)")
