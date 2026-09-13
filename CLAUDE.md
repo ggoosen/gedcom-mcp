@@ -36,8 +36,8 @@ tests/             pytest; fixtures/sample.ged is an Ancestry-style file (BOM + 
 1. **Lossless round-trip.** Every `GedLine` keeps its raw source line and only re-renders when
    mutated (setters clear `_raw`). Unknown/vendor tags (`_APID`, `_OID`, `OBJE`, …), order,
    encoding, BOM, line endings and even stray `\r` inside note values must survive untouched.
-   `parse_bytes(data).to_bytes() == data` must hold for any real export. Test this against
-   `../Goosen Family Tree.ged` (LF endings, embedded CRs) as well as the CRLF fixture.
+   `parse_bytes(data).to_bytes() == data` must hold for any real export. Test this against a
+   real Ancestry export (LF endings, embedded CRs) as well as the CRLF fixture.
 2. **CONT/CONC are ordinary children.** Read folded text via `GedLine.text`; write via
    `GedLine.set_text()`. Never edit `.value` of a line that has continuation children.
 3. **Edits go through `gedcom/edit.py`**, stamp `CHAN` via `GedcomFile.stamp()`, and the tool
@@ -57,9 +57,9 @@ uv pip install --python .venv -e ".[dev]"
 .venv/Scripts/python tests/make_fixture.py # regenerate tests/fixtures/sample.ged
 ```
 
-Registered in Claude Code (local scope, project `C:\Projects\ancestry`):
-`gedcom-mcp.exe --gedcom-path C:/Projects/ancestry`. Re-register with
-`claude mcp add gedcom -- <path-to>/.venv/Scripts/gedcom-mcp.exe --gedcom-path <dir>`.
+Register in Claude Code with
+`claude mcp add gedcom -- <path-to>/.venv/Scripts/gedcom-mcp.exe --gedcom-path <dir>`
+(see README for other clients).
 
 ## Adding a tool
 
