@@ -4,6 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![MCP](https://img.shields.io/badge/MCP-Python%20SDK%202.x-purple.svg)](https://github.com/modelcontextprotocol/python-sdk)
+[![M8ven Live Monitored](https://m8ven.ai/badge/mcp/ggoosen-gedcom-mcp-1k4mv1?variant=verified)](https://m8ven.ai/mcp/ggoosen-gedcom-mcp-1k4mv1)
 
 A [Model Context Protocol](https://modelcontextprotocol.io) server that lets Claude (or any MCP
 client) **read, search and edit GEDCOM `.ged` family-tree files** — the export format used by
